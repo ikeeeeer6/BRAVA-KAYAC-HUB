@@ -1,0 +1,270 @@
+============================================================
+BRAVA KAYAK HUB
+DOCUMENTO DE REQUISITOS PARA LA PÁGINA WEB
+============================================================
+
+1. INFORMACIÓN BÁSICA DE LA EMPRESA
+------------------------------------------------------------
+
+Nombre de la empresa:
+Brava Kayak HUB
+
+Ubicación:
+Playa de Fenals, Lloret de Mar (Costa Brava)
+
+Servicios actuales:
+- Alquiler de kayaks individuales.
+- Alquiler de kayaks dobles.
+- Alquiler de Paddle Surf (SUP).
+- Alquiler de Big SUP para grupos.
+
+Servicios futuros:
+- Rutas guiadas en kayak.
+- Excursiones con snorkel.
+- Actividades organizadas para grupos.
+
+Valor diferencial:
+- Material nuevo y de alta calidad.
+- Ubicación privilegiada en Playa de Fenals.
+- Equipo con más de 20 años de experiencia en actividades náuticas y turismo activo.
+- Atención cercana y personalizada.
+
+Experiencia:
+Aunque Brava Kayak HUB es una empresa de reciente creación, el equipo cuenta con más de dos décadas de experiencia en actividades acuáticas, excursiones guiadas y atención al cliente.
+
+============================================================
+2. OBJETIVOS DE LA WEB
+------------------------------------------------------------
+
+Objetivo principal:
+- Crear una página web moderna, atractiva e informativa.
+
+Objetivos secundarios:
+- Mostrar claramente los servicios.
+- Mostrar tarifas y precios.
+- Generar confianza.
+- Facilitar el contacto mediante WhatsApp.
+- Posicionar la marca en Lloret de Mar y Costa Brava.
+
+Funcionalidades futuras:
+- Reservas online.
+- Pago online.
+- Gestión de reservas para grupos.
+- Reserva de rutas guiadas y excursiones.
+
+Acción principal del usuario:
+- Consultar servicios.
+- Ver precios.
+- Contactar por WhatsApp.
+
+============================================================
+3. PÚBLICO OBJETIVO
+------------------------------------------------------------
+
+Dirigido a:
+- Turistas nacionales.
+- Turistas internacionales.
+- Familias.
+- Parejas.
+- Grupos de amigos.
+- Empresas.
+- Colegios.
+- Grupos organizados.
+
+No existe una edad concreta, ya que las actividades están pensadas para un público amplio.
+
+============================================================
+4. DISEÑO Y ESTILO VISUAL
+------------------------------------------------------------
+
+Colores corporativos:
+- Azul (mar, confianza y naturaleza).
+- Naranja (energía, aventura y visibilidad).
+
+Logotipo:
+- Disponible.
+
+Estilo deseado:
+- Moderno.
+- Deportivo.
+- Aventurero.
+- Dinámico.
+- Muy visual.
+
+La web debe transmitir:
+- Aventura.
+- Diversión.
+- Seguridad.
+- Profesionalidad.
+- Confianza.
+
+Debe destacar el entorno natural de la Costa Brava.
+
+============================================================
+5. ESTRUCTURA DE LA WEB
+------------------------------------------------------------
+
+INICIO
+- Imagen principal impactante.
+- Presentación de la empresa.
+- Servicios destacados.
+- Botón de WhatsApp.
+- Acceso rápido a tarifas.
+
+SOBRE NOSOTROS
+- Historia.
+- Experiencia.
+- Filosofía.
+- Valores.
+
+ALQUILER DE KAYAK Y PADDLE SURF
+- Descripción de actividades.
+- Fotografías.
+- Información práctica.
+
+RUTAS GUIADAS (PRÓXIMAMENTE)
+- Sección visible indicando disponibilidad futura.
+
+GALERÍA
+- Fotografías de actividades.
+- Fotografías del entorno.
+
+TARIFAS Y PRECIOS
+- Tabla clara y sencilla.
+
+RESERVAS ONLINE (PRÓXIMAMENTE)
+- Preparada para futuras integraciones.
+
+OPINIONES
+- Integración con Google Reviews.
+- Testimonios.
+
+PREGUNTAS FRECUENTES
+- ¿Puedo hacerlo sin experiencia?
+- ¿Hay una edad mínima?
+- ¿Qué material está incluido?
+- ¿Es necesario reservar?
+- ¿Qué ocurre si hace mal tiempo?
+- ¿Pueden participar niños?
+
+BLOG
+- Noticias.
+- Consejos.
+- Rutas recomendadas.
+- Lugares de interés.
+
+CONTACTO
+- Teléfono.
+- Email.
+- WhatsApp.
+- Formulario.
+- Google Maps.
+
+============================================================
+6. CONTENIDO
+------------------------------------------------------------
+
+Actualmente se está recopilando:
+- Fotografías propias.
+- Vídeos.
+- Textos corporativos.
+
+Idiomas previstos:
+- Español.
+- Catalán.
+- Inglés.
+- Francés.
+
+============================================================
+7. RESERVAS Y PAGOS
+------------------------------------------------------------
+
+Primera versión:
+- No es prioritario.
+
+Futuro:
+- Reservas online.
+- Pago online.
+- Gestión de grupos.
+- Sincronización con calendario.
+
+============================================================
+8. DATOS DE CONTACTO
+------------------------------------------------------------
+
+Empresa:
+Brava Kayak HUB
+
+Teléfono:
+722 261 178
+
+WhatsApp:
+722 261 178
+
+Email:
+bravakayak@gmail.com
+
+Ubicación:
+Playa de Fenals
+Lloret de Mar
+
+Coordenadas:
+41°41'36.5"N
+2°49'50.9"E
+
+Horario:
+Todos los días
+09:00 - 19:00
+
+============================================================
+9. SEO Y POSICIONAMIENTO
+------------------------------------------------------------
+
+Objetivos SEO:
+- Lloret de Mar.
+- Playa de Fenals.
+- Costa Brava.
+
+Palabras clave principales:
+- Alquiler kayak Lloret de Mar.
+- Kayak Playa de Fenals.
+- Paddle Surf Lloret de Mar.
+- Big SUP Costa Brava.
+- Actividades acuáticas Lloret de Mar.
+- Kayak Costa Brava.
+- Excursiones kayak Costa Brava.
+- Snorkel Costa Brava.
+- Alquiler Paddle Surf Costa Brava.
+
+Servicios prioritarios:
+- Alquiler de Kayaks.
+- Paddle Surf.
+- Big SUP.
+- Próximamente rutas guiadas.
+- Próximamente snorkel.
+
+============================================================
+10. ASPECTOS TÉCNICOS
+------------------------------------------------------------
+
+- Diseño responsive.
+- Compatible con móvil, tablet y ordenador.
+- Optimización SEO básica.
+- Carga rápida.
+- Integración con Google Maps.
+- Preparada para futuras ampliaciones.
+- Botón flotante de WhatsApp.
+
+============================================================
+11. EXTRAS
+------------------------------------------------------------
+
+- Botón flotante de WhatsApp.
+- Google Maps integrado.
+- Integración futura con Google Reviews.
+- Diseño escalable.
+- Optimización para clientes internacionales.
+
+============================================================
+FIN DEL DOCUMENTO
+============================================================
