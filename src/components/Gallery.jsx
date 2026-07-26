@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
+import gallery01 from '../assets/images/galeria/WhatsApp Image 2026-07-26 at 20.15.05 (1).jpeg'
+import gallery02 from '../assets/images/galeria/WhatsApp Image 2026-07-26 at 20.15.05 (2).jpeg'
+import gallery03 from '../assets/images/galeria/WhatsApp Image 2026-07-26 at 20.15.05.jpeg'
+import gallery04 from '../assets/images/galeria/WhatsApp Image 2026-07-26 at 20.15.06.jpeg'
+import gallery05 from '../assets/images/galeria/WhatsApp Image 2026-07-26 at 20.15.07 (1).jpeg'
+import gallery06 from '../assets/images/galeria/WhatsApp Image 2026-07-26 at 20.15.07 (2).jpeg'
+import gallery07 from '../assets/images/galeria/WhatsApp Image 2026-07-26 at 20.15.07.jpeg'
 
-const IMAGES = [
-  'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80',
-  'https://images.unsplash.com/photo-1517821365211-15ed120cd8cd?auto=format&fit=crop&w=1200&q=80',
-  'https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=1200&q=80',
-]
+const IMAGES = [gallery01, gallery02, gallery03, gallery04, gallery05, gallery06, gallery07]
 
 export default function Gallery() {
   const [idx, setIdx] = useState(0)
@@ -15,15 +18,20 @@ export default function Gallery() {
   }, [])
 
   return (
-    <div className="carousel">
-      <div className="carousel-inner">
+    <div className="gallery-carousel">
+      <div className="gallery-frame">
         {IMAGES.map((src, i) => (
-          <div key={i} className={`slide ${i === idx ? 'active' : ''}`} style={{ backgroundImage: `url(${src})` }} />
+          <img
+            key={src}
+            src={src}
+            alt={`Vista de la Costa Brava ${i + 1}`}
+            className={`gallery-image ${i === idx ? 'active' : ''}`}
+          />
         ))}
       </div>
-      <div className="carousel-controls">
+      <div className="gallery-controls">
         {IMAGES.map((_, i) => (
-          <button key={i} className={`dot ${i === idx ? 'active' : ''}`} onClick={() => setIdx(i)} aria-label={`Ir a imagen ${i + 1}`} />
+          <button key={i} className={`gallery-dot ${i === idx ? 'active' : ''}`} onClick={() => setIdx(i)} aria-label={`Ir a imagen ${i + 1}`} />
         ))}
       </div>
     </div>
