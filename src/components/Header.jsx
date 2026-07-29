@@ -5,8 +5,9 @@ const whatsappLink = 'https://wa.me/34722261178?text=Hola%20Brava%20Kayak%20HUB%
 
 export default function Header({ language, setLanguage, navLinks, reserveLabel }) {
   return (
-    <header className="w-full px-4 py-5 sm:px-8 lg:px-12">
-      <div className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/15 bg-white/10 px-3 py-3 shadow-[0_18px_50px_rgba(0,0,0,0.22)] backdrop-blur-xl sm:px-5">
+    <header className="w-full px-3 py-4 sm:px-8 lg:px-12">
+      <div className="mx-auto flex max-w-7xl flex-col gap-3 rounded-[28px] border border-white/15 bg-white/10 px-3 py-3 shadow-[0_18px_50px_rgba(0,0,0,0.22)] backdrop-blur-xl sm:flex-row sm:items-center sm:justify-between sm:px-5">
+        <div className="flex items-center justify-between gap-3">
         <a href="#inicio" className="flex items-center gap-3">
           <img src={heroLogo} alt="Brava Kayak HUB" className="h-11 w-11 rounded-full object-cover" />
           <span className="text-sm font-semibold uppercase tracking-[0.25em] text-white sm:text-base">
@@ -14,20 +15,8 @@ export default function Header({ language, setLanguage, navLinks, reserveLabel }
           </span>
         </a>
 
-        <nav className="hidden flex-1 items-center justify-center gap-5 lg:flex">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-sm font-medium text-slate-100 transition hover:text-[#f58220]"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-2">
-          <div className="hidden rounded-full border border-white/15 bg-white/10 p-1 sm:flex">
+        <div className="flex items-center gap-2 sm:ml-auto">
+          <div className="flex rounded-full border border-white/15 bg-white/10 p-1">
             <button
               type="button"
               onClick={() => setLanguage('es')}
@@ -43,7 +32,22 @@ export default function Header({ language, setLanguage, navLinks, reserveLabel }
               EN
             </button>
           </div>
+        </div>
+        </div>
 
+        <nav className="hidden flex-1 items-center justify-center gap-5 lg:flex">
+          {navLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className="text-sm font-medium text-slate-100 transition hover:text-[#f58220]"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
+        <div className="hidden items-center gap-2 sm:flex sm:ml-auto">
           <a
             href={whatsappLink}
             target="_blank"
