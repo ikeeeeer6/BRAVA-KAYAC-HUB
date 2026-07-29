@@ -84,10 +84,10 @@ const content = {
     servicesLabel: 'Servicios',
     soonBadge: 'Próximamente',
     prices: [
-      { activity: 'Kayak doble', duration: '1 hora', price: '25 €', image: kayakDobleImage },
-      { activity: 'Kayak individual', duration: '1 hora', price: '25 €', image: kayakIndividualImage },
-      { activity: 'Paddle Surf (SUP)', duration: '1 hora', price: '20 €', image: paddleSurfImage },
-      { activity: 'Big SUP', duration: '1 hora', price: '60 €', image: bigSupImage },
+      { activity: 'Kayak doble', duration: 'Ideal para compartir', price: '1 h - 25 €', image: kayakDobleImage },
+      { activity: 'Kayak individual', duration: 'Libertad y ritmo propio', price: '1 h - 25 €', image: kayakIndividualImage },
+      { activity: 'Paddle Surf (SUP)', duration: 'Perfecto para empezar', price: '1 h - 20 €', image: paddleSurfImage },
+      { activity: 'Big SUP', duration: 'Para grupos y familias', price: '1h - 60 €', image: bigSupImage },
     ],
     pricingLabel: 'Tarifas',
     pricingTitle: 'Precios claros y competitivos',
@@ -200,10 +200,10 @@ const content = {
     servicesLabel: 'Services',
     soonBadge: 'Coming soon',
     prices: [
-      { activity: 'Double kayak', duration: '1 hour', price: '25 €', image: kayakDobleImage },
-      { activity: 'Single kayak', duration: '1 hour', price: '25 €', image: kayakIndividualImage },
-      { activity: 'Paddle Surf (SUP)', duration: '1 hour', price: '20 €', image: paddleSurfImage },
-      { activity: 'Big SUP', duration: '1 hour', price: '60 €', image: bigSupImage },
+      { activity: 'Double kayak', duration: 'Great for sharing', price: '25 €', image: kayakDobleImage },
+      { activity: 'Single kayak', duration: 'Freedom at your own pace', price: '25 €', image: kayakIndividualImage },
+      { activity: 'Paddle Surf (SUP)', duration: 'Perfect for beginners', price: '20 €', image: paddleSurfImage },
+      { activity: 'Big SUP', duration: 'For groups and families', price: '60 €', image: bigSupImage },
     ],
     pricingLabel: 'Prices',
     pricingTitle: 'Clear and competitive prices',
@@ -277,7 +277,7 @@ function App() {
           <div className="relative z-10 flex min-h-screen flex-col">
             <Header language={language} setLanguage={setLanguage} navLinks={t.nav} reserveLabel={t.reserveButton} />
 
-            <div className="flex flex-1 items-center px-6 py-20 sm:px-8 lg:px-12">
+            <div className="flex flex-1 items-center px-4 py-16 sm:px-8 sm:py-20 lg:px-12">
               <div className="mx-auto flex w-full max-w-7xl flex-col items-center text-center">
                 <div className="hero-fade-up max-w-4xl">
                   <p className="mb-5 inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.35em] text-slate-100 backdrop-blur-md">
@@ -321,7 +321,7 @@ function App() {
           </div>
         </section>
 
-        <div className="mx-auto max-w-7xl px-6 pb-20 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-8 lg:px-12">
           <section id="sobre" className="section about-section">
             <div className="section-content">
               <div>
@@ -351,7 +351,7 @@ function App() {
           </div>
           <div className="services-grid">
             {services.map((service) => (
-              <article key={service.title} className={`service-card ${service.soon ? 'soon' : ''}`}>
+              <article key={service.title} className={`service-card w-full ${service.soon ? 'soon' : ''}`}>
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
                 {service.soon && <span className="badge">{t.soonBadge}</span>}

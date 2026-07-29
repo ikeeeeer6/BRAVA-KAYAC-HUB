@@ -401,9 +401,10 @@ body {
   flex-direction: column;
   overflow: hidden;
   border-radius: 1.25rem;
-  background: white;
-  box-shadow: 0 18px 45px rgba(3, 18, 31, 0.08);
-  border: 1px solid rgba(15, 43, 70, 0.08);
+  background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
+  box-shadow: 0 18px 45px rgba(3, 18, 31, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(10px);
 }
 
 .pricing-image-wrap {
@@ -435,11 +436,16 @@ body {
 
 .pricing-content {
   padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
 }
 
 .pricing-content p {
-  margin: 0 0 0.6rem;
-  color: #49708f;
+  margin: 0;
+  color: #dce9ff;
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
 .pricing-content span {
@@ -447,6 +453,7 @@ body {
   color: #f58220;
   font-weight: 800;
   font-size: 1.35rem;
+  letter-spacing: 0.02em;
 }
 
 @media (min-width: 768px) {
@@ -592,10 +599,22 @@ body {
 }
 
 .services-grid {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 0.65rem;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  align-items: stretch;
+}
+
+@media (min-width: 768px) {
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
 }
 
 .service-card {
@@ -801,16 +820,68 @@ body {
 }
 
 @media (max-width: 640px) {
-  .top-nav {
-    width: 100%;
-    justify-content: space-between;
+  .section {
+    padding: 2rem 0;
   }
 
-  .section {
-    padding: 3rem 0;
+  .section-header h2,
+  .about-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .section-content {
+    gap: 1rem;
   }
 
   .hero-copy h1 {
     font-size: 2.4rem;
+  }
+
+  .hero-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .hero-actions .button,
+  .hero-actions a {
+    width: 100%;
+  }
+
+  .services-grid,
+  .pricing-cards,
+  .info-grid,
+  .faq-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid {
+    gap: 0.85rem;
+    grid-template-columns: 1fr !important;
+  }
+
+  .service-card {
+    width: 100%;
+  }
+
+  .service-card,
+  .pricing-card,
+  .contact-card,
+  .faq-card {
+    padding: 1rem;
+  }
+
+  .pricing-image-wrap {
+    height: 180px;
+  }
+
+  .map-frame {
+    height: 240px;
+  }
+
+  .site-footer {
+    padding: 1.5rem 1rem 1rem;
+    font-size: 0.9rem;
   }
 }
