@@ -73,11 +73,10 @@ const content = {
       {
         title: 'Big SUP para grupos',
         description: 'Ideal para familias y grupos que quieren disfrutar juntos sobre el agua.',
-      },
+      },      
       {
-        title: 'Rutas guiadas',
-        description: 'Próximamente: rutas especiales por la Costa Brava con guía experto.',
-        soon: true,
+        title: 'Ruta guida + Snorkel',
+        description: 'Explora calas y rincones escondidos con un guía mientras descubres la vida marina haciendo snorkel.',
       },
     ],
     servicesTitle: 'Todo lo que ofrecemos',
@@ -85,9 +84,10 @@ const content = {
     soonBadge: 'Próximamente',
     prices: [
       { activity: 'Kayak doble', duration: 'Ideal para compartir', price: '1 h - 25 €', image: kayakDobleImage },
-      { activity: 'Kayak individual', duration: 'Libertad y ritmo propio', price: '1 h - 25 €', image: kayakIndividualImage },
+      { activity: 'Kayak individual', duration: 'Libertad y ritmo propio', price: '1 h - 20 €', image: kayakIndividualImage },
       { activity: 'Paddle Surf (SUP)', duration: 'Perfecto para empezar', price: '1 h - 20 €', image: paddleSurfImage },
       { activity: 'Big SUP', duration: 'Para grupos y familias', price: '1h - 60 €', image: bigSupImage },
+      { activity: 'Ruta guida + Snorkel', duration: 'Por persona (mínimo 4 personas)', price: '2h - 40 €', image: kayakDobleImage },
     ],
     pricingLabel: 'Tarifas',
     pricingTitle: 'Precios claros y competitivos',
@@ -126,7 +126,7 @@ const content = {
     contactItems: [
       { title: 'Teléfono', value: '722 261 178' },
       { title: 'WhatsApp', value: 'Enviar mensaje', link: whatsappLink },
-      { title: 'Email', value: 'info@bravakayakhub.com', link: 'mailto:info@bravakayakhub.com' },
+      { title: 'Email', value: 'bravakayak@gmail.com', link: 'mailto:bravakayak@gmail.com' },
       { title: 'Ubicación', value: 'Playa de Fenals, Lloret de Mar' },
     ],
     reserveButton: 'Reserva ya',
@@ -191,19 +191,19 @@ const content = {
         description: 'Ideal for families and groups who want to enjoy the water together.',
       },
       {
-        title: 'Guided routes',
-        description: 'Coming soon: special routes along the Costa Brava with an expert guide.',
-        soon: true,
-      },
+        title: 'Guided Kayak Tour + Snorkeling',
+        description: 'Explore hidden coves with an experienced guide and discover the vibrant marine life while snorkeling.',
+      }
     ],
     servicesTitle: 'Everything we offer',
     servicesLabel: 'Services',
     soonBadge: 'Coming soon',
     prices: [
-      { activity: 'Double kayak', duration: 'Great for sharing', price: '25 €', image: kayakDobleImage },
-      { activity: 'Single kayak', duration: 'Freedom at your own pace', price: '25 €', image: kayakIndividualImage },
-      { activity: 'Paddle Surf (SUP)', duration: 'Perfect for beginners', price: '20 €', image: paddleSurfImage },
-      { activity: 'Big SUP', duration: 'For groups and families', price: '60 €', image: bigSupImage },
+      { activity: 'Double kayak', duration: 'Great for sharing', price: '1 h - 25 €', image: kayakDobleImage },
+      { activity: 'Single kayak', duration: 'Freedom at your own pace', price: '1 h - 20 €', image: kayakIndividualImage },
+      { activity: 'Paddle Surf (SUP)', duration: 'Perfect for beginners', price: '1 h - 20 €', image: paddleSurfImage },
+      { activity: 'Big SUP', duration: 'For groups and families', price: '1 h - 60 €', image: bigSupImage },
+      {activity: 'Guided Kayak Tour + Snorkeling', duration: 'For person (minimum 4 participants)', price: '2h - 40 €', image: kayakDobleImage },
     ],
     pricingLabel: 'Prices',
     pricingTitle: 'Clear and competitive prices',
@@ -429,8 +429,8 @@ function App() {
           </div>
           <div className="map-frame">
             <iframe
-              title="Mapa de Playa de Fenals"
-              src="https://www.google.com/maps?q=Playa+de+Fenals,+Lloret+de+Mar&output=embed"
+              title="Mapa de Brava Kayak Hub"
+              src="https://www.google.com/maps?q=Brava+Kayak+Hub,+Lloret+de+Mar&z=17&output=embed"
               loading="lazy"
             />
           </div>
