@@ -13,7 +13,7 @@ import WhatsAppFab from './components/WhatsAppFab'
 import Gallery from './components/Gallery'
 import ContactForm from './components/ContactForm'
 import Reviews from './components/Reviews'
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 
 const whatsappLink = 'https://wa.me/34722261178?text=Hola%20Brava%20Kayak%20HUB%2C%20quiero%20informaci%C3%B3n'
 
