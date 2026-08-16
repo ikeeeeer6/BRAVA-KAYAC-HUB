@@ -1,4 +1,5 @@
 import React from 'react'
+import { sendEvent } from '../analytics'
 import heroLogo from '../assets/images/logo_brava_kayak_hub.png'
 
 const whatsappLink = 'https://wa.me/34722261178?text=Hola%20Brava%20Kayak%20HUB%2C%20quiero%20informaci%C3%B3n'
@@ -40,6 +41,7 @@ export default function Header({ language, setLanguage, navLinks, reserveLabel }
             <a
               key={link.label}
               href={link.href}
+              onClick={() => sendEvent({ type: 'nav', label: link.label, href: link.href })}
               className="text-sm font-medium text-slate-100 transition hover:text-[#f58220]"
             >
               {link.label}
@@ -52,6 +54,7 @@ export default function Header({ language, setLanguage, navLinks, reserveLabel }
             href={whatsappLink}
             target="_blank"
             rel="noreferrer"
+            onClick={() => sendEvent({ type: 'cta', name: 'reserve_header', path: window.location.pathname })}
             className="rounded-full bg-[#f58220] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#df6f1a]"
           >
             {reserveLabel}

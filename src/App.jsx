@@ -1,5 +1,5 @@
 import './App.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import portadaImage from './assets/images/foto_portada.png'
 import serviciosImage from './assets/images/nuestros_servicios.jpg'
 import galleryImage from './assets/images/galeria.jpg'
@@ -14,6 +14,8 @@ import Gallery from './components/Gallery'
 import ContactForm from './components/ContactForm'
 import Reviews from './components/Reviews'
 import { Analytics } from "@vercel/analytics/react"
+import Admin from './Admin'
+import { sendEvent } from './analytics'
 
 const whatsappLink = 'https://wa.me/34722261178?text=Hola%20Brava%20Kayak%20HUB%2C%20quiero%20informaci%C3%B3n'
 
@@ -263,6 +265,22 @@ function App() {
   const highlights = t.highlights
   const contact = t.contactItems
 
+  useEffect(() => {
+    // enviar pageview al cargar la SPA
+    try {
+      sendEvent({ type: 'pageview', path: window.location.pathname })
+    } catch (e) {
+      console.error(e)
+    }
+  }, [])
+
+  // ruta admin configurable via VITE_ADMIN_PATH (por defecto '/admin')
+  const rawAdminPath = import.meta.env.VITE_ADMIN_PATH || '/admin'
+  const adminPath = rawAdminPath.startsWith('/') ? rawAdminPath : '/' + rawAdminPath
+  if (typeof window !== 'undefined' && window.location.pathname.startsWith(adminPath)) {
+    return <Admin />
+  }
+
   return (
     <div className="page">
       <main>
@@ -297,6 +315,7 @@ function App() {
                   <div className="flex flex-col justify-center gap-4 sm:flex-row">
                     <a
                       href="#contacto"
+                      onClick={() => sendEvent({ type: 'cta', name: 'reserve_click', path: window.location.pathname })}
                       className="hero-btn-primary inline-flex items-center justify-center gap-3 rounded-full px-7 py-3.5 text-base font-semibold text-white shadow-[0_20px_45px_rgba(245,130,32,0.28)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_70px_rgba(245,130,32,0.35)]"
                     >
                       <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
@@ -308,6 +327,7 @@ function App() {
                       href={whatsappLink}
                       target="_blank"
                       rel="noreferrer"
+                      onClick={() => sendEvent({ type: 'contact', method: 'whatsapp', path: window.location.pathname })}
                       className="inline-flex items-center justify-center gap-3 rounded-full border border-white/70 bg-white/10 px-7 py-3.5 text-base font-semibold text-white backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:bg-white/20"
                     >
                       <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor">
