@@ -1,4 +1,5 @@
 import React from 'react'
+import { sendEvent } from '../analytics'
 
 const whatsappLink = 'https://wa.me/34722261178?text=Hola%20Brava%20Kayak%20HUB%2C%20quiero%20informaci%C3%B3n'
 
@@ -9,6 +10,7 @@ export default function WhatsAppFab() {
       href={whatsappLink}
       target="_blank"
       rel="noreferrer"
+      onClick={() => sendEvent({ type: 'contact', method: 'whatsapp', path: window.location.pathname })}
       aria-label="Contactar por WhatsApp"
     >
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
