@@ -3,15 +3,27 @@ import { sendEvent } from '../analytics'
 
 const whatsappLink = 'https://wa.me/34722261178?text=Hola%20Brava%20Kayak%20HUB%2C%20quiero%20informaci%C3%B3n'
 
-export default function WhatsAppFab() {
+export default function WhatsAppFab({ disabled = false }) {
+  const props = disabled
+    ? {
+        href: '#',
+        onClick: (event) => event.preventDefault(),
+        'aria-label': 'Contactar por WhatsApp',
+        'aria-disabled': true,
+        style: { pointerEvents: 'none', cursor: 'not-allowed', opacity: 0.7 },
+      }
+    : {
+        href: whatsappLink,
+        target: '_blank',
+        rel: 'noreferrer',
+        'aria-label': 'Contactar por WhatsApp',
+        onClick: () => sendEvent({ type: 'contact', method: 'whatsapp', path: window.location.pathname }),
+      }
+
   return (
     <a
       className="whatsapp-fab"
-      href={whatsappLink}
-      target="_blank"
-      rel="noreferrer"
-      onClick={() => sendEvent({ type: 'contact', method: 'whatsapp', path: window.location.pathname })}
-      aria-label="Contactar por WhatsApp"
+      {...props}
     >
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M20.52 3.48A11.9 11.9 0 0012 .5C6.21.5 1.5 5.21 1.5 11c0 1.93.5 3.74 1.47 5.34L.5 23.5l7-2.03A11.9 11.9 0 0012 22.5c5.79 0 10.5-4.71 10.5-10.5 0-3.01-1.18-5.8-3.98-8.52z" fill="#25D366"/>
