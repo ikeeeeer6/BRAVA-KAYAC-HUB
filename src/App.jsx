@@ -19,7 +19,7 @@ import { sendEvent } from './analytics'
 
 const whatsappLink = 'https://wa.me/34722261178?text=Hola%20Brava%20Kayak%20HUB%2C%20quiero%20informaci%C3%B3n'
 const siteConfig = {
-  isSeasonClosed: false,
+  isSeasonClosed: true, // Cambiar a false para abrir la temporada
 }
 
 const content = {
