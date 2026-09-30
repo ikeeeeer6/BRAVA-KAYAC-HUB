@@ -4,7 +4,21 @@ import heroLogo from '../assets/images/logo_brava_kayak_hub.png'
 
 const whatsappLink = 'https://wa.me/34722261178?text=Hola%20Brava%20Kayak%20HUB%2C%20quiero%20informaci%C3%B3n'
 
-export default function Header({ language, setLanguage, navLinks, reserveLabel }) {
+export default function Header({ language, setLanguage, navLinks, reserveLabel, contactDisabled = false }) {
+  const buttonProps = contactDisabled
+    ? {
+        href: '#',
+        onClick: (event) => event.preventDefault(),
+        'aria-disabled': true,
+        style: { pointerEvents: 'none', cursor: 'not-allowed', opacity: 0.7 },
+      }
+    : {
+        href: whatsappLink,
+        target: '_blank',
+        rel: 'noreferrer',
+        onClick: () => sendEvent({ type: 'cta', name: 'reserve_header', path: window.location.pathname }),
+      }
+
   return (
     <header className="w-full px-3 py-4 sm:px-8 lg:px-12">
       <div className="mx-auto flex max-w-7xl flex-col gap-3 rounded-[28px] border border-white/15 bg-white/10 px-3 py-3 shadow-[0_18px_50px_rgba(0,0,0,0.22)] backdrop-blur-xl sm:flex-row sm:items-center sm:justify-between sm:px-5">
@@ -51,10 +65,7 @@ export default function Header({ language, setLanguage, navLinks, reserveLabel }
 
         <div className="hidden items-center gap-2 sm:flex sm:ml-auto">
           <a
-            href={whatsappLink}
-            target="_blank"
-            rel="noreferrer"
-            onClick={() => sendEvent({ type: 'cta', name: 'reserve_header', path: window.location.pathname })}
+            {...buttonProps}
             className="rounded-full bg-[#f58220] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#df6f1a]"
           >
             {reserveLabel}

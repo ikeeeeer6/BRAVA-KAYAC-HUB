@@ -18,6 +18,9 @@ import Admin from './Admin'
 import { sendEvent } from './analytics'
 
 const whatsappLink = 'https://wa.me/34722261178?text=Hola%20Brava%20Kayak%20HUB%2C%20quiero%20informaci%C3%B3n'
+const siteConfig = {
+  isSeasonClosed: false, // Cambiar a false cuando la temporada esté abierta
+}
 
 const content = {
   es: {
@@ -257,13 +260,77 @@ const content = {
 function App() {
   const [language, setLanguage] = useState('es')
   const t = content[language]
-  const hero = t.hero
+  const isSeasonClosed = siteConfig.isSeasonClosed
+  const hero = isSeasonClosed
+    ? {
+        badge: language === 'es' ? 'Temporada cerrada' : 'Season closed',
+        titleStart: language === 'es' ? 'Estamos' : 'We are',
+        titleAccent: language === 'es' ? 'cerrados' : 'closed',
+        titleEnd: language === 'es' ? 'por ahora' : 'for now',
+        tagline: language === 'es' ? 'Nos vemos el año que viene' : 'See you next year',
+        text: language === 'es'
+          ? 'Gracias por vuestro interés. La temporada ya ha terminado y volveremos a abrir el próximo año con más rutas, aventura y mar para disfrutar.'
+          : 'Thank you for your interest. The season is over and we will be back next year with more routes, adventure and sea to enjoy.',
+        primary: language === 'es' ? 'Nos vemos el año que viene' : 'See you next year',
+        secondary: language === 'es' ? 'Escribir por WhatsApp' : 'Message on WhatsApp',
+      }
+    : t.hero
   const about = t.about
   const services = t.services
   const prices = t.prices
   const faqs = t.faqs
   const highlights = t.highlights
   const contact = t.contactItems
+
+  const getContactLinkProps = (item) => {
+    if (isSeasonClosed) {
+      return {
+        href: '#',
+        onClick: (event) => event.preventDefault(),
+        'aria-disabled': true,
+        style: { pointerEvents: 'none', cursor: 'not-allowed', opacity: 0.7 },
+      }
+    }
+
+    const isWhatsApp = item.title === 'WhatsApp' || item.title === 'WhatsApp'
+    return {
+      href: item.link,
+      ...(item.link.startsWith('http') ? { target: '_blank', rel: 'noreferrer' } : {}),
+      onClick: () => {
+        sendEvent({
+          type: 'contact',
+          method: isWhatsApp ? 'whatsapp' : 'email',
+          path: window.location.pathname,
+        })
+      },
+    }
+  }
+
+  const primaryActionProps = isSeasonClosed
+    ? {
+        href: '#',
+        onClick: (event) => event.preventDefault(),
+        'aria-disabled': true,
+        style: { pointerEvents: 'none', cursor: 'not-allowed', opacity: 0.7 },
+      }
+    : {
+        href: '#contacto',
+        onClick: () => sendEvent({ type: 'cta', name: 'reserve_click', path: window.location.pathname }),
+      }
+
+  const secondaryActionProps = isSeasonClosed
+    ? {
+        href: '#',
+        onClick: (event) => event.preventDefault(),
+        'aria-disabled': true,
+        style: { pointerEvents: 'none', cursor: 'not-allowed', opacity: 0.7 },
+      }
+    : {
+        href: whatsappLink,
+        target: '_blank',
+        rel: 'noreferrer',
+        onClick: () => sendEvent({ type: 'contact', method: 'whatsapp', path: window.location.pathname }),
+      }
 
   useEffect(() => {
     // enviar pageview al cargar la SPA
@@ -294,7 +361,7 @@ function App() {
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-slate-900/20 to-slate-950/75" />
 
           <div className="relative z-10 flex min-h-screen flex-col">
-            <Header language={language} setLanguage={setLanguage} navLinks={t.nav} reserveLabel={t.reserveButton} />
+            <Header language={language} setLanguage={setLanguage} navLinks={t.nav} reserveLabel={t.reserveButton} contactDisabled={isSeasonClosed} />
 
             <div className="flex flex-1 items-center px-4 py-16 sm:px-8 sm:py-20 lg:px-12">
               <div className="mx-auto flex w-full max-w-7xl flex-col items-center text-center">
@@ -314,8 +381,7 @@ function App() {
 
                   <div className="flex flex-col justify-center gap-4 sm:flex-row">
                     <a
-                      href="#contacto"
-                      onClick={() => sendEvent({ type: 'cta', name: 'reserve_click', path: window.location.pathname })}
+                      {...primaryActionProps}
                       className="hero-btn-primary inline-flex items-center justify-center gap-3 rounded-full px-7 py-3.5 text-base font-semibold text-white shadow-[0_20px_45px_rgba(245,130,32,0.28)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_70px_rgba(245,130,32,0.35)]"
                     >
                       <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
@@ -324,10 +390,7 @@ function App() {
                       {hero.primary}
                     </a>
                     <a
-                      href={whatsappLink}
-                      target="_blank"
-                      rel="noreferrer"
-                      onClick={() => sendEvent({ type: 'contact', method: 'whatsapp', path: window.location.pathname })}
+                      {...secondaryActionProps}
                       className="inline-flex items-center justify-center gap-3 rounded-full border border-white/70 bg-white/10 px-7 py-3.5 text-base font-semibold text-white backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:bg-white/20"
                     >
                       <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor">
@@ -441,7 +504,7 @@ function App() {
               <div key={item.title} className="contact-card">
                 <h3>{item.title}</h3>
                 {item.link ? (
-                  <a href={item.link} target="_blank" rel="noreferrer">{item.value}</a>
+                  <a {...getContactLinkProps(item)}>{item.value}</a>
                 ) : (
                   <p>{item.value}</p>
                 )}
@@ -461,9 +524,9 @@ function App() {
 
       <footer className="site-footer">
         <p>{t.footerLine}</p>
-        <p>{t.footerSubline}</p>
+        <p>{isSeasonClosed ? (language === 'es' ? 'Estamos cerrados por temporada. ¡Nos vemos el próximo año!' : 'We are closed for the season. See you next year!') : t.footerSubline}</p>
       </footer>
-      <WhatsAppFab />
+      <WhatsAppFab disabled={isSeasonClosed} />
     </div>
   )
 }
